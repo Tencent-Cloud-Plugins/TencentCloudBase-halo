@@ -1,0 +1,52 @@
+{
+  "version": "2.0",
+  "envId": "{{env.ENV_ID}}",
+  "framework": {
+    "name": "halo",
+    "plugins": {
+      "client": {
+        "use": "@cloudbase/framework-plugin-container",
+        "inputs": {
+          "serviceName": "halo",
+          "servicePath": "/",
+          "uploadType": "image",
+          "imageInfo": {
+            "imageUrl": "ccr.ccs.tencentyun.com/tcbimages/halo:1.4"
+          },
+          "containerPort": 8090,
+          "customLogs": "stdout,/dev/stdout,/dev/stderr",
+          "envVariables": {
+            "USERNAME": "{{env.ADMIN_NAME}}",
+            "NICKNAME": "{{env.ADMIN_NAME}}",
+            "PASSWORD": "{{env.ADMIN_PASS}}",
+            "CONFIRMPASSWORD": "{{env.ADMIN_PASS}}",
+            "EMAIL": "admin@example.com",
+            "TITLE": "halo"
+          },
+          "initialDelaySeconds": 20,
+          "volumeMounts": {
+            "/root/.halo": "halo-cfs"
+          }
+        }
+      }
+    },
+    "requirement": {
+      "addons": [{
+        "type": "CFS",
+        "name": "halo-cfs"
+      }],
+      "environment": {
+        "ADMIN_NAME": {
+          "description": "后台管理系统管理员账号",
+          "required": true,
+          "default": "admin"
+        },
+        "ADMIN_PASS": {
+          "description": "后台管理系统管理员密码",
+          "required": true,
+          "default": "admin123"
+        }
+      }
+    }
+  }
+}
