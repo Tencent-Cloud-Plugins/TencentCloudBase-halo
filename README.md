@@ -2,7 +2,7 @@
   <img height="100px" src="./halo.png" />
 </p>
 
-# [bjyblog](https://github.com/baijunyao/laravel-bjyblog)
+# [halo](https://github.com/halo-dev/halo)
 
 Halo 是一款现代化的个人独立博客系统，给习惯写博客的同学多一个选择。
 
@@ -30,3 +30,4 @@ Halo 是一款现代化的个人独立博客系统，给习惯写博客的同学
 ## 注意事项
 
 1. 部署时，需要将服务路径设置为根路径 `/`
+ 
